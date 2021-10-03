@@ -103,16 +103,19 @@ const updateEmployeeQuestions = [
 function viewDepartments() {
   db.query('SELECT * FROM department', function (err, results) {
     console.log(results);
+    init();
   })
 };
 function viewRoles() {
   db.query('SELECT * FROM roles', function (err, results) {
     console.log(results);
+    init();
   })
 };
 function viewEmployees() {
   db.query('SELECT * FROM employees', function (err, results) {
     console.log(results);
+    init();
   })
 
 };
@@ -137,9 +140,9 @@ function addRole() {
 function addEmployee() {
   inquirer.prompt(newEmployeeQuestions)
     .then((response) => {
-      db.query(`INSERT INTO roles (id, first_name, last_name, role_id, manager_id)
+      db.query(`INSERT INTO employees (id, first_name, last_name, role_id, manager_id)
       VALUES  (${response.id}, "${response.first}", "${response.last}", ${response.role_id}, ${response.man_id});`, function (err, results) {
-        viewRoles();
+        viewEmployees();
       })
     })
 
@@ -151,7 +154,6 @@ function updateEmployee() {
       SET role_id = ${response.newRole}
       WHERE id = ${response.id};`, function (err, results) {
         viewEmployees();
-        init();
       })
 
     })

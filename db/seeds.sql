@@ -19,7 +19,7 @@ VALUES  (01, "stock", 110),
 INSERT INTO employees (id, first_name, last_name, role_id, manager_id)
 VALUES  (01, "Joe", "Hardy", 06, 05),
         (02, "Gary", "Lee", 07, 05),
-        (03, "Sue", "Collins", 05, null),
+        (03, "Sue", "Collins", 05, 01),
         (04, "Stacy", "Gray", 02, 05),
-        (05, "Barry", "Vars", 09, null),
-        (06, "Betty" "Johnson", 04, 01);
+        (05, "Barry", "Vars", 09, 01),
+        (06, "Betty", "Johnson", 04, 01);
